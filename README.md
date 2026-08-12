@@ -5,7 +5,9 @@
 
 PSUSphere is a Django-based web application for managing colleges, academic programs, students, student organizations, and organization memberships.
 
+
 ## Features
+[image](img/psusphere.png)
 
 - Manage colleges
 - Manage academic programs

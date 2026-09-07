@@ -22,7 +22,7 @@ https://docs.djangoproject.com/en/4.2/topics/http/urls/
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from studentorg.views import (
     HomePageView,
@@ -53,6 +53,7 @@ from studentorg import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
 
     # Home
     path('', views.HomePageView.as_view(), name='home'),

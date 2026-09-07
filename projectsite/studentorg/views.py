@@ -112,6 +112,7 @@ class OrgMemberList(ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
+
         query = self.request.GET.get('q')
 
         if query:
@@ -121,9 +122,20 @@ class OrgMemberList(ListView):
                 Q(organization__name__icontains=query)
             )
 
+        sort = self.request.GET.get('sort')
+
+        if sort == 'student':
+            qs = qs.order_by('student__lastname')
+        elif sort == 'date':
+            qs = qs.order_by('date_joined')
+
         return qs
 
     
+# =========================
+# ORG MEMBER
+# =========================
+
 class OrgMemberList(ListView):
     model = OrgMember
     template_name = 'orgmember_list.html'

@@ -48,12 +48,11 @@ INSTALLED_APPS = [
      'allauth.socialaccount.providers.google',
      'allauth.socialaccount.providers.github',
 ]
-if "pythonanywhere" in socket.gethostname():
-      
-   SITE_ID = 3# production site (psusphere.pythonanywhere.com)
+if os.name == "nt":
+    SITE_ID = 3
 else:
-  SITE_ID = 2 # local site (127.0.0.1:8000)
-
+    SITE_ID = 2
+    
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -151,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
-ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_ON_GET = True
 
 ACCOUNT_LOGIN_METHODS = {"username", "email"}

@@ -54,7 +54,6 @@ from studentorg import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-
     # Home
     path('', views.HomePageView.as_view(), name='home'),
 

@@ -52,7 +52,7 @@ if "pythonanywhere" in socket.gethostname():
       
    SITE_ID = 2 # production site (psusphere.pythonanywhere.com)
 else:
-  SITE_ID = 1 # local site (127.0.0.1:8000)
+  SITE_ID = 3 # local site (127.0.0.1:8000)
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-     'allauth.account.middleware.AccountMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
    
@@ -133,20 +133,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
-ACCOUNT_LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_ON_GET = True
-
-ACCOUNT_LOGIN_METHODS = {"username", "email"}
-
-ACCOUNT_SIGNUP_FIELDS = [
-    "username*",
-    "email*",
-    "password1*",
-    "password2*",
-]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -161,3 +147,18 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_ON_GET = True
+
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+
+ACCOUNT_SIGNUP_FIELDS = [
+    "username*",
+    "email*",
+    "password1*",
+    "password2*",
+]

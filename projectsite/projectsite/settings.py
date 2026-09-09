@@ -161,3 +161,4 @@ ACCOUNT_SIGNUP_FIELDS = [
     "password1*",
     "password2*",
 ]
+SOCIALACCOUNT_AUTO_SIGNUP = True
